@@ -21,7 +21,7 @@ func info(s *dg.Session, cID string) {
 		},
 		&dg.MessageEmbedField{
 			Name:   "Links",
-			Value:  "[Invite](https://discordapp.com/api/oauth2/authorize?client_id=463635074265513995&permissions=383040&scope=bot) | [Support](https://discord.gg/HaPHVY2)",
+			Value:  "[Invite](https://discordapp.com/api/oauth2/authorize?client_id=463635074265513995&permissions=383040&scope=bot) | [Support](https://discord.gg/HaPHVY2) | [Github](https://github.com/akritrime/iniesto)",
 			Inline: true,
 		},
 	}

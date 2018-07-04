@@ -52,7 +52,7 @@ func bye(s *dg.Session, g *dg.GuildDelete) {
 		return
 	}
 
-	_, err = s.ChannelMessageSend(dm.ID, "Bye!")
+	_, err = s.ChannelMessageSend(dm.ID, "Thanks for using Iniesto. If you have any feedback or suggestions on how to improve Iniesto, please consider leaving a message on the support server. You can use `> info` in this dm channel to get the support server invite. Hope you have a good day. Bye!")
 	if err != nil {
 		fmt.Printf("err in dming owner: %v\n", err)
 	}
