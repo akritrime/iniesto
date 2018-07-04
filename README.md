@@ -5,8 +5,10 @@ A Discord bot to follow football(soccer) scores, named after the great [Iniesto]
 The bot is written in Go with [discordgo](https://github.com/bwmarrin/discordgo) package
 
 The default prefix of the bot is `>`. You can also mention the bot to use it.
+
+
 |Command|Description|
-|---|---|
+|-------|-----------|
 |@Iniesto matches DAY|Displays **all the matches for the day**. day = [today | tomorrow | yesterday]|
 |@Iniesto matches on DATE|Displays **all match on that particular date**. Date format is **YYYY-MM-DD**|
 |@Iniesto score|Displays **score for ongoing matches**|
