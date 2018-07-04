@@ -11,7 +11,7 @@ The default prefix of the bot is `>`. You can also mention the bot to use it.
 
 |Command|Description|
 |-------|-----------|
-|@Iniesto matches DAY|Displays **all the matches for the day**. `day = [today | tomorrow | yesterday]`|
+|@Iniesto matches DAY|Displays **all the matches for the day**. Possible day values can be `today`, `tomorrow` or `yesterday`|
 |@Iniesto matches on DATE|Displays **all match on that particular date**. Date format is **YYYY-MM-DD**|
 |@Iniesto score|Displays **score for ongoing matches**|
 |@Iniesto prefix PREFIX|Sets a **new prefix** for the guild. Only members with administrator permissions can set new prefix.|
