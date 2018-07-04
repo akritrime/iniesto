@@ -14,6 +14,7 @@ func hi(s *dg.Session, g *dg.GuildCreate) {
 		return
 	} else if err != nil {
 		fmt.Println("err in isNewGuild ", err)
+		return
 	}
 
 	for _, v := range g.Channels {
@@ -48,6 +49,7 @@ func bye(s *dg.Session, g *dg.GuildDelete) {
 
 	if err != nil {
 		fmt.Printf("err in dming owner: %v\n", err)
+		return
 	}
 
 	_, err = s.ChannelMessageSend(dm.ID, "Bye!")
@@ -57,11 +59,8 @@ func bye(s *dg.Session, g *dg.GuildDelete) {
 }
 
 func pingPong(s *dg.Session, m *dg.MessageCreate) {
-	if m.Author.ID == botID {
-		return
-	}
 
-	if m.Content == "ping" {
+	if m.Content == "ping" && m.Author.ID == "399951813237014528" {
 		s.ChannelMessageSend(m.ChannelID, "Pong!")
 	}
 }

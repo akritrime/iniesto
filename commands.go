@@ -21,7 +21,7 @@ func info(s *dg.Session, cID string) {
 		},
 		&dg.MessageEmbedField{
 			Name:   "Links",
-			Value:  "[Invite](https://discordapp.com/oauth2/authorize?client_id=459234906401275944&permissions=0&scope=bot)",
+			Value:  "[Invite](https://discordapp.com/api/oauth2/authorize?client_id=463635074265513995&permissions=383040&scope=bot) | [Support](https://discord.gg/HaPHVY2)",
 			Inline: true,
 		},
 	}
@@ -73,7 +73,7 @@ func matches(args []string) (cmd func(s *dg.Session, cID string)) {
 	if err != nil {
 		fmt.Println("err in my getting matches: ", err)
 		return func(s *dg.Session, cID string) {
-			e := errorEmbed("Error in getting matches. Try again.")
+			e := errorEmbed("Error in getting matches. Try again later. If problem persists, report it on support server")
 			s.ChannelMessageSendEmbed(cID, &e)
 		}
 	}
@@ -82,6 +82,10 @@ func matches(args []string) (cmd func(s *dg.Session, cID string)) {
 	err = j.Decode(&mr)
 	if err != nil {
 		fmt.Println("err in decoding", err)
+		return func(s *dg.Session, cID string) {
+			e := errorEmbed("Error in getting matches. Try again later. If problem persists, report it on support server")
+			s.ChannelMessageSendEmbed(cID, &e)
+		}
 	}
 
 	return func(s *dg.Session, cID string) {
@@ -98,7 +102,7 @@ func matches(args []string) (cmd func(s *dg.Session, cID string)) {
 func score(s *dg.Session, cID string) {
 	sendErr := func(err error) {
 		fmt.Println("err in my getting matches: ", err)
-		e := errorEmbed("Error in getting matches. Try again, later.")
+		e := errorEmbed("Error in getting matches. Try again, later. If problem persists, report it on support server.")
 		s.ChannelMessageSendEmbed(cID, &e)
 	}
 
