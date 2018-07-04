@@ -14,27 +14,13 @@ type guildDB struct {
 }
 
 func getDB() (db *sql.DB, err error) {
-	dbname := os.Getenv("DBNAME")
-	if dbname == "" {
-		err = errors.New("var DBNAME not set")
+	dburl := os.Getenv("DATABASE_URL")
+	if dburl == "" {
+		err = errors.New("var DB_URL not set")
 		return
 	}
 
-	dbuser := os.Getenv("DBUSER")
-	if dbuser == "" {
-		err = errors.New("var DBUSER not set")
-		return
-	}
-
-	dbpwd := os.Getenv("DBPWD")
-	if dbpwd == "" {
-		err = errors.New("var DBPWD not set")
-		return
-	}
-
-	conf := fmt.Sprintf("user=%v dbname=%v password=%v sslmode=disable", dbuser, dbname, dbpwd)
-
-	db, err = sql.Open("postgres", conf)
+	db, err = sql.Open("postgres", dburl)
 	return
 }
 
