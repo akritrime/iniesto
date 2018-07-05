@@ -89,6 +89,14 @@ func matches(args []string) (cmd func(s *dg.Session, cID string)) {
 	}
 
 	return func(s *dg.Session, cID string) {
+		if len(mr.Matches) == 0 {
+			e := errorEmbed("Sorry, there are no matches on that day.")
+			_, err = s.ChannelMessageSendEmbed(cID, &e)
+			if err != nil {
+				fmt.Println(err)
+			}
+
+		}
 		for i, m := range mr.Matches {
 			e := matchEmbed(i+1, m)
 			_, err = s.ChannelMessageSendEmbed(cID, &e)
